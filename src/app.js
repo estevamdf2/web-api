@@ -15,10 +15,10 @@ app.use((error, request, response, next) => {
 		response.status(500).json((error));
 });
 
-sequelize.sync((force = true)).then(() => {
+sequelize.sync({force : true}).then(() => {
 	const port = process.env.PORT || 3000;
 	const hostname = '127.0.0.1';
-
+	console.log('sq');
 	app.set('port',port);
 
 	const server = http.createServer(app);
